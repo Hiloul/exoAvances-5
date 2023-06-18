@@ -1,0 +1,95 @@
+Exercice 1 : Inverser l'ordre des mots dans une phrase Notions abordées : les
+chaînes de caractères, les boucles. On reprend un exercice que nous avons
+effectué plus tôt dans la formation mais cette fois-ci avec une phrase. Il est
+question ici d'inverser l'ordre des mots dans la phrase. Votre phrase devra,
+comme une phrase normalement construite, commencer par une majuscule. Nous avons
+ici la phrase 'Bonjour tout le monde', votre script devra donc retourner la
+phrase 'Monde le tout bonjour'. Astuces : Pour inverser une liste, vous pouvez
+utiliser la fonction reversed. Exercice 2 : Compter le nombre de phrases dans un
+texte Notions abordées : les chaînes de caractères. Dans cet exercice, le but
+est de compter le nombre de phrase présente dans le texte contenu dans la
+variable Lorem. Ce texte contient 4 phrases, votre script devra donc retourner
+le nombre 4. La phrase est : Lorem = """Lorem ipsum dolor sit amet, consectetur
+adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+id est laborum.""" Astuces : Pour compter le nombre de phrases dans un texte, il
+suffit de compter le nombre de points ! Exercice 3 : Compter le nombre
+d'occurrence de chaque lettre de l'alphabet dans un texte Notions abordées : les
+boucles, les dictionnaires. Dans cet exercice, nous cherchons à analyser un
+texte pour savoir combien de fois on y retrouve chaque lettre de l'alphabet.
+Nous avons donc un texte classique de Lorem Ipsum et votre script doit retourner
+un dictionnaire avec chaque lettre de l'alphabet et le nombre de fois qu'elle
+apparaît dans le texte. Dans l'exemple ci-dessous, votre script devra retourner
+le dictionnaire suivant : {'a': 29, 'b': 3, 'c': 16, 'd': 19, 'e': 38, 'f': 3,
+'g': 3, 'h': 1, 'i': 42, 'j': 0, 'k': 0, 'l': 22, 'm': 17, 'n': 24, 'o': 29,
+'p': 11, 'q': 5, 'r': 22, 's': 18, 't': 32, 'u': 29, 'v': 3, 'w': 0, 'x': 3,
+'y': 0, 'z': 0}  Astuces : Pour récupérer toutes les lettres de l'alphabet, vous
+pouvez utiliser la variable ascii_lowercase du module string. En prenant comme
+phrase pour le Lorem l’exemple suivant : Lorem = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.""" Exercice 4 : Exercice : Recréer la
+méthode join() Objectif de l'exercice : En utilisant les connaissances sur les
+fonctions, vous devez recréer la méthode join() en Python. Instructions :
+Définissez une fonction appelée join(separateur, *elements). La fonction join
+doit accepter un séparateur en tant que premier argument, suivi d'un nombre
+variable d'éléments à joindre. À l'intérieur de la fonction, initialisez une
+variable resultat avec la valeur convertie en chaîne de caractères du premier
+élément. Utilisez une boucle pour parcourir les éléments à partir du deuxième
+élément. À chaque itération de la boucle, ajoutez le séparateur suivi de
+l'élément converti en chaîne de caractères à la variable resultat. À la fin de
+la boucle, retournez le résultat final obtenu en joignant tous les éléments avec
+le séparateur. Testez votre fonction en l’appelant avec différents séparateurs
+et éléments, puis affichez les résultats obtenus. Exemple d’utilisation :
+resultat = join(", ", "rouge", "vert", "bleu") print("Affiche :", resultat) #
+Affiche : rouge, vert, bleu resultat = join(" - ", 1, 2, 3, 4, 5) print("Affiche
+:", resultat) # Affiche : 1 - 2 - 3 - 4 - 5 resultat = join(" | ", "pomme",
+"banane", "orange") print("Affiche :", resultat) # Affiche : pomme | banane |
+orange Contraintes : Vous n'êtes pas autorisé à utiliser la méthode join()
+intégrée à Python pour cet exercice. Assurez-vous que votre fonction fonctionne
+correctement avec un nombre variable d'éléments. Consignes : Vous devez fournir
+le code complet de la fonction join(). Assurez-vous d'inclure des commentaires
+pour expliquer le rôle de chaque instruction dans votre code. Testez votre
+fonction avec différents cas de test pour vous assurer de sa précision et de sa
+fonctionnalité. Vous pouvez utiliser la cellule de code fournie pour écrire
+votre solution. Ressources supplémentaires : Documentation Python sur les
+fonctions :
+https://docs.python.org/fr/3/tutorial/controlflow.html#defining-functions Haut
+du formulaire Exercice 5: Créer une classe pour gérer des voitures Notions
+abordées : les classes, les instances. Dans cet exercice sur les classes, on
+commence doucement avec un exercice dans lequel le but est de créer une
+classe Voiture qui va contenir trois attributs : La marque de la voiture, son
+prix, et sa couleur. À vous donc de compléter le code de la classe Voiture afin
+que les trois print à la fin du script retournent respectivement la marque, le
+prix et la couleur de la voiture ('Lamborghini', 150000 et 'rouge'). Astuces :
+N'oubliez pas le mot clé self qui réfère à l'instance de votre classe. Il vous
+sera très utile dans cet exercice ! Exercice 6 : Mettre en place le code
+nécessaire pour afficher plusieurs voitures avec marque, prix et couleur.
+Exercice 7 : Créer des classes de base avec les classmethod Notions abordées :
+les classes, les méthodes. On continue encore et encore avec notre
+classe Voiture, pour laquelle nous allons maintenant créer des 'classmethod'.
+Cela nous permettra donc de définir une marque, un prix et une couleur par
+défaut pour 2 types de voitures de luxe : une Lamborghini et une Porsche. Nous
+allons donc à partir de ces deux classmethod créer deux instances de voitures :
+1. >>> Lamborghini = Voiture.lamborghini() 2. >>> print(lamborghini.prix) 3.
+150000 4. >>> porsche = Voiture.porsche() 5. >>> print(porsche.prix) 6. 200000
+La Lamborghini devra avoir comme marque "Lamborghini", comme prix 150,000€ et
+comme couleur "rouge". La porsche quant à elle devra avoir comme
+marque "Porsche", comme prix 200,000€ et comme couleur "noire". Le code devra
+afficher : La Lamborghini a pour marque : Lamborghini, prix : 150.000€ et
+couleur : rouge La Porsche a pour marque : Porsche, prix : 200.000€ et couleur :
+noire Astuces : Pour créer une classmethod, il faut utiliser le
+décorateur @classmethod. Exercice 8 : Modifier la représentation d'une classe
+Notions abordées : les classes, les méthodes. Dans cet exercice, nous continuons
+avec notre classe Voiture. Le but de cet exercice est de changer la
+représentation de notre classe afin de pouvoir faire un print d'une instance de
+notre classe et avoir des informations précises sur notre instance. Notre script
+doit donc retourner la phrase suivante lorsqu'on print une instance de notre
+classe : >>> super_voiture = Voiture("lamborghini", 150000, "rouge") >>>
+print(super_voiture) Votre voiture est une Lamborghini rouge et coûte 150000€
