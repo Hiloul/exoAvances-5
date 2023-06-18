@@ -13,28 +13,22 @@ noir = (0, 0, 0)
 
 # Création de la fenêtre du jeu
 fenetre = pygame.display.set_mode((largeur_fenetre, hauteur_fenetre))
-pygame.display.set_caption("Choix du personnage")
+pygame.display.set_caption("Sélection et déplacement du personnage")
 
-# Chargement des images
-images = [
-    pygame.image.load("personnages/tamagotchi(1).png"),
-    pygame.image.load("personnages/tamagotchi(2).png"),
-    pygame.image.load("personnages/tamagotchi(3).png"),
-    pygame.image.load("personnages/tamagotchi(4).png"),
-    pygame.image.load("personnages/tamagotchi(5).png"),
-    pygame.image.load("personnages/tamagotchi(6).png"),
-    pygame.image.load("personnages/tamagotchi(7).png"),
-    pygame.image.load("personnages/tamagotchi(8).png"),
-    pygame.image.load("personnages/tamagotchi(9).png"),
-    pygame.image.load("personnages/tamagotchi(10).png")
-]
+# Chargement des images des personnages
+personnage1 = pygame.image.load("personnages/tamagotchi(1).png")
+personnage2 = pygame.image.load("personnages/tamagotchi(2).png")
+personnage3 = pygame.image.load("personnages/tamagotchi(3).png")
 
-# Index de l'image sélectionnée
-index_image = 0
+# Liste des images des personnages
+personnages = [personnage1, personnage2, personnage3]
 
-# Position de départ de l'image
-x_image = 100
-y_image = 100
+# Index du personnage sélectionné
+index_personnage = 2
+
+# Position de départ du personnage
+x_personnage = 100
+y_personnage = 100
 
 # Variables de déplacement
 deplacement = 5
@@ -49,16 +43,25 @@ while running:
             running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                # Défiler vers l'image précédente
-                index_image = (index_image - 1) % len(images)
+                # Déplacer le personnage vers la gauche
+                x_personnage -= deplacement
             elif event.key == pygame.K_RIGHT:
-                # Défiler vers l'image suivante
-                index_image = (index_image + 1) % len(images)
+                # Déplacer le personnage vers la droite
+                x_personnage += deplacement
+            elif event.key == pygame.K_UP:
+                # Déplacer le personnage vers le haut
+                y_personnage -= deplacement
+            elif event.key == pygame.K_DOWN:
+                # Déplacer le personnage vers le bas
+                y_personnage += deplacement
+            elif event.key == pygame.K_SPACE:
+                # Changer de personnage sélectionné
+                index_personnage = (index_personnage + 1) % len(personnages)
     
-    # Affichage de l'image sélectionnée
-    image = images[index_image]
-    image_rect = image.get_rect()
-    fenetre.blit(image, (x_image, y_image))
+    # Affichage du personnage sélectionné
+    personnage = personnages[index_personnage]
+    personnage_rect = personnage.get_rect()
+    fenetre.blit(personnage, (x_personnage, y_personnage))
     
     # Mise à jour de l'affichage
     pygame.display.flip()
