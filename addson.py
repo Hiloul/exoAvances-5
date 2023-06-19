@@ -23,7 +23,7 @@ pygame.mixer.init()
 son = pygame.mixer.Sound("son.wav")
 
 # Chargement de l'image
-image = pygame.image.load("image.png")
+image = pygame.image.load("personnages/tamagotchi(1).png")
 image_rect = image.get_rect()
 
 # Position de départ de l'image
@@ -67,6 +67,7 @@ while running:
     
     # Affichage de l'image
     fenetre.blit(image, (x_image, y_image))
+    son.play()
     
     # Mise à jour de l'affichage
     pygame.display.flip()
