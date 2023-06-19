@@ -20,7 +20,7 @@ pygame.display.set_caption("Déplacement d'image")
 pygame.mixer.init()
 
 # Chargement du son
-son = pygame.mixer.Sound("son.wav")
+son = pygame.mixer.Sound("sons/son.wav")
 
 # Chargement de l'image
 image = pygame.image.load("personnages/tamagotchi(1).png")

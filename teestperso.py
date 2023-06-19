@@ -77,6 +77,10 @@ pygame.quit()
 import pygame
 import pygame.mixer
 
+
+
+
+
 # Initialisation de Pygame
 pygame.init()
 
