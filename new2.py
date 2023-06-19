@@ -5,10 +5,12 @@ import pygame.mixer
 # Initialisation de Pygame
 pygame.init()
 
+# Couleur de fond
+background_color = (241, 184, 168)  # Blanc
 # Création de la fenêtre
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Sélection et défilement d'images")
-
+# F1B8A8
 # Initialisation du mixer Pygame
 pygame.mixer.init()
 
@@ -96,8 +98,9 @@ while True:
                     current_image_index = 0
 
     # Effacer l'écran
-    screen.fill((255, 255, 255))
-
+    # screen.fill((255, 255, 255))
+   # Remplir l'écran avec la couleur de fond
+    screen.fill(background_color)
     # Afficher l'image actuelle
     screen.blit(images[current_image_index], image1_rect)
 
