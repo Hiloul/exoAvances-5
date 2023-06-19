@@ -17,7 +17,7 @@ button_padding = 20
 screen_width = 800
 screen_height = 600
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Sélection et défilement d'images")
+pygame.display.set_caption("Mon Tamagotchi")
 # F1B8A8
 # Dimensions du menu
 menu_height = 30
@@ -26,6 +26,8 @@ pygame.mixer.init()
 
 # Chargement du son
 son = pygame.mixer.Sound("sons/son-selection.wav")
+sonSlide = pygame.mixer.Sound("sons/son-boutons.wav") 
+sonClick = pygame.mixer.Sound("sons/son-clicksouris.wav") 
 
 # Chargement des images
 image1 = pygame.image.load("personnages/tamagotchi(1).png")
@@ -112,6 +114,7 @@ while True:
             for button in buttons:
                 if button.collidepoint(event.pos):
                     print("Bouton cliqué")
+                    sonClick.play()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             # Vérification si la souris est sur l'une des images
@@ -121,13 +124,16 @@ while True:
                     son.play()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
+                sonSlide.play()
                 current_image_index -= 1
                 if current_image_index < 0:
                     current_image_index = len(images) - 1
             elif event.key == pygame.K_RIGHT:
+                sonSlide.play()
                 current_image_index += 1
                 if current_image_index >= len(images):
                     current_image_index = 0
+                    
 
     # Effacer l'écran
     # screen.fill((255, 255, 255))
