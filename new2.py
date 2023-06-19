@@ -1,22 +1,31 @@
 import pygame
 import sys
 import pygame.mixer
-
 # Initialisation de Pygame
 pygame.init()
 
+RED = (229, 64, 93)
+BLUE = (241, 184, 168)
 # Couleur de fond
-background_color = (241, 184, 168)  # Blanc
+background_color = (255, 250, 226)  # Blanc
+
+# Dimensions des boutons
+button_radius = 25
+button_padding = 20
+
 # Création de la fenêtre
-screen = pygame.display.set_mode((800, 600))
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Sélection et défilement d'images")
 # F1B8A8
+# Dimensions du menu
+menu_height = 30
 # Initialisation du mixer Pygame
 pygame.mixer.init()
 
 # Chargement du son
 son = pygame.mixer.Sound("sons/son-selection.wav")
-
 
 # Chargement des images
 image1 = pygame.image.load("personnages/tamagotchi(1).png")
@@ -74,6 +83,23 @@ images = [image1, image2, image3, image4, image5, image6, image7, image8, image9
 current_image_index = 0  # Indice de l'image actuellement affichée
 image_rects = [image1_rect, image2_rect, image3_rect, image4_rect, image5_rect, image6_rect, image7_rect, image8_rect, image9_rect, image10_rect]
 
+# Rectangle du menu
+menu_rect = pygame.Rect(0, 0, screen_width, menu_height)
+
+# Positionnement des boutons
+button_count = 3
+button_spacing = (screen_width - (button_radius * 2 * button_count + button_padding * (button_count - 1))) // 2
+button_y = screen_height - button_radius - 20
+
+# Liste des boutons
+buttons = []
+
+# Création des boutons
+for i in range(button_count):
+    button_x = button_radius + i * (button_radius * 2 + button_padding)
+    button_rect = pygame.Rect(button_x - button_radius, button_y - button_radius, button_radius * 2, button_radius * 2)
+    buttons.append(button_rect)
+
 # Boucle principale du jeu
 while True:
     # Gestion des événements
@@ -81,6 +107,12 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # Vérification si un bouton est cliqué
+            for button in buttons:
+                if button.collidepoint(event.pos):
+                    print("Bouton cliqué")
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             # Vérification si la souris est sur l'une des images
             for index, rect in enumerate(image_rects):
@@ -103,6 +135,13 @@ while True:
     screen.fill(background_color)
     # Afficher l'image actuelle
     screen.blit(images[current_image_index], image1_rect)
+
+    # Afficher les boutons
+    for button in buttons:
+        pygame.draw.circle(screen, RED, button.center, button_radius)
+
+# Dessiner le menu
+    pygame.draw.rect(screen, BLUE, menu_rect)
 
     # Mettre à jour l'affichage
     pygame.display.flip()
